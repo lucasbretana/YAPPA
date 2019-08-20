@@ -62,18 +62,21 @@ cmake -G "Unix Makefiles" ../llvm -DLLVM_ENABLE_PROJECTS=clang -DLLVM_BUILD_TEST
 
 _shout "Running make"
 make
-_shout "make: $?"
-[ $? -eq 0 ] || exit $?;
+_re=$?
+_shout "make: $_re
+[ $_re -eq 0 ] || exit $_re
 
 _shout "Running make check"
 make check
-_shout "make: $?"
-[ $? -eq 0 ] || exit $?;
+_re=$?
+_shout "make: $_re
+[ $_re -eq 0 ] || exit $_re
 
 _shout "Running make clang-test"
 make clang-test
-_shout "make: $?"
-[ $? -eq 0 ] || exit $?;
+_re=$?
+_shout "make: $_re
+[ $_re -eq 0 ] || exit $_re
 
 
 _shout "Time to make instalation (y/N)"
