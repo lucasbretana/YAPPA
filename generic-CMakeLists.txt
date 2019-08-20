@@ -1,0 +1,11 @@
+set(LLVM_LINK_COMPONENTS support)
+
+add_clang_executable(plugin
+    plugin.cpp
+)
+target_link_libraries(plugin
+  PRIVATE
+  clangTooling
+  clangBasic
+  clangASTMatchers
+)
