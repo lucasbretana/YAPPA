@@ -116,7 +116,11 @@ cp "$pwd_root"/generic-CMakeLists.txt ./tools/extra/"$plugin"/CMakeList.txt;
 sed -i "s/plugin/$plugin/" "./tools/extra/$plugin/CMakeLists.txt";
 [ $? -eq 0 ] || exit $?;
 
-_shout "Run the plugin";
+_shout "Copping plugin file to the right destination";
+cp "$pwd_root"/"$plugin".cpp ./tools/extra/"$plugin"/CMakeList.txt;
+[ $? -eq 0 ] || exit $?;
+
+_shout "Compiling the plugin";
 cd "$pwd_root"/"$fst_lvl"/build || exit 17;
 make;
 [ $? -eq 0 ] || exit $?;
